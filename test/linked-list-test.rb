@@ -100,6 +100,6 @@ class TestLinkedList < Minitest::Test
 		list.append(node4)
 		list.count
 		result = list.find_by_position(2).data
-		assert_equal "2", result
+		assert_equal "1", result
 	end
 end
