@@ -102,4 +102,46 @@ class TestLinkedList < Minitest::Test
 		result = list.find_by_position(2).data
 		assert_equal "1", result
 	end
+
+	def test_pop_first_node
+		list = LinkedList.new
+		node = Node.new("1")
+		node2 = Node.new("2")
+	
+		list.append(node)
+		list.append(node2)
+		list.pop_first
+
+		result = list.head.data
+		assert_equal "1", result
+	end
+
+	def test_it_can_push
+		list = LinkedList.new
+		node = Node.new("1")
+		node2 = Node.new("2")
+		node3 = Node.new("3")
+
+		list.append(node)
+		list.append(node2)
+		list.push(node3)
+
+		result = list.head.data
+		assert_equal "3", result
+	end
+
+	def test_it_can_insert_anywhere
+		list = LinkedList.new
+		node = Node.new("1")
+		node2 = Node.new("2")
+		node3 = Node.new("3")
+
+		list.append(node)
+		list.append(node2)
+		list.count
+		list.insert(node3, 1)
+
+		result = list.head.next_node.data
+		assert_equal "3", result
+	end
 end
