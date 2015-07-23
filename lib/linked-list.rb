@@ -38,6 +38,7 @@ class LinkedList
 		end
 		@tail = current
 	end
+
 	def pop
 		current = @head
 		until current.next_node == nil
@@ -46,11 +47,29 @@ class LinkedList
 		end
 		previous.next_node = nil
 	end
+
 	def find_by_position(num)
 		current = @head
 		until current.position == num 
 			current = current.next_node
 		end
 		current
+	end
+
+	def pop_first
+		current = @head
+		@head = current.next_node
+	end
+
+	def push(node)
+		current = node
+		current.next_node = head
+		@head = current
+	end
+
+	def insert(node, position)
+		current = find_by_position(position)
+		node.next_node = current.next_node.next_node
+		current.next_node = node
 	end
 end
